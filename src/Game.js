@@ -41,7 +41,7 @@ class Game {
 
   initializer(){
     return {
-      value: 'off',
+      value: 'off by default',
       checked: false
     }
   }

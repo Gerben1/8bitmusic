@@ -35,13 +35,11 @@ class Interface extends React.Component {
     return (
     
       <section className="game">
-        <img className="logo" src="http://s24.postimg.org/8lwo92gs5/BATTLECAT.png" /> 
+        <img className="logo" src="http://s8.postimg.org/ap7z23o8l/logo4.png" /> 
         <audio src={ backgroundmusic } autoPlay loop>
         </audio>
         { !started && <Board boardType="control" handleClick={ this.toggleState.bind(this) } board={ board }></Board> }
         { started && <Board boardType="game" handleClick={ this.checkCell.bind(this) } board={ board }></Board> }
-
-        <button className="startButton" disabled={ started } onClick={ this.startGame.bind(this) }>Start Battle</button>
       </section>
     )
   }
