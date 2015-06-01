@@ -31,10 +31,8 @@
   margin: 1px;
 }
 
-.board-game .cell.cell-is-on.cell-is-checked, .board-control .cell.cell-is-on {
-  background: url(http://www.likecool.com/Gear/Pic/3D%208bit%20Characters%20by%20Cezkid/3D-8bit-Characters-by-Cezkid.gif);
-  background-size: 100% 100%;
-  background-color: blue;
+.cell:focus {
+  outline: 10px solid red;
 }
 
 .board-control .cell {
@@ -46,13 +44,34 @@
 }
 
 body {
- background: url(http://awesomegifs.com/wp-content/uploads/nintendos-world.gif);
+ background: url(http://s1.postimg.org/77o5mmiov/image.jpg);
  background-size: cover;
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
-.logo {
-  max-height: 15%;
+.startButton {
+  cursor: pointer;
+  display: block;
+  appearance: none;
+  border-radius: 0;
+  background: green;
+  border: 0;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+}
+
+.startButton:hover:not(:disabled) {
+  box-shadow: 5px 5px 5px black;
+}
+
+.startButton:disabled {
+  cursor: auto;
+  background: salmon;
+  opacity: 0.50;
+
 }

@@ -2,10 +2,16 @@ import R from 'ramda';
 
 class Game {
 
-  createBoard(gridSize){
+  constructor(images) {
+    console.log(images)
+    this.imageCollection = 'hi';
+  }
+
+  createBoard(gridSize, images){
+    var imageCollection = 'hi';
     let boardSize = gridSize * gridSize;
-    let boardMaker = R.mapIndexed(({value, checked}, id) => {
-      return { id, value, checked }
+    let boardMaker = R.mapIndexed(({value, checked, picture}, id) => {
+      return { id, value, checked, picture }
     });
     let board = boardMaker(R.times(this.initializer, boardSize));
     let started = false;
@@ -13,19 +19,8 @@ class Game {
   }
 
   toggleCell(index, board){
-    let cell = board[index].value === 'on' ? 'off' : 'on';
-    board[index].value = cell;
-    return board;
-  }
-
-  checkCell(index, board){
-    let message = board[index].value === 'on' ? 'hit' : 'miss';
-    board[index].checked = true;
-    let gameEnded = this.isOver(board);
-    if(gameEnded){
-      alert('You won this time, but Cats will rule!');
-    }
-
+    // let cell = board[index].value === 'on' ? 'off' : 'on';
+    // board[index].value = cell;
     return board;
   }
 
@@ -39,10 +34,16 @@ class Game {
     return !amount;
   };
 
-  initializer(){
+  initializer(n){
+
     return {
-      value: 'off by default',
-      checked: false
+      value: 'on',
+      checked: false,
+      picture: (function(){ 
+
+
+
+        return images[n] })()
     }
   }
 }
